@@ -27,10 +27,74 @@
   <link rel="preload" href="https://fonts.googleapis.com/css?family=Inter:100,200,300,400,500,600,700,800,900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:100,200,300,400,500,600,700,800,900&display=swap"></noscript>
   <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css"><link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
-  
-  
-  
-  
+
+  <style>
+    /* ── Ultime Notizie homepage section ── */
+    .ultime-notizie-section {
+      padding: 4rem 0;
+      background-color: #f4f7fb;
+    }
+    .ultime-notizie-section .section-label {
+      display: inline-block;
+      background-color: #05386b;
+      color: #fff;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.3rem 1rem;
+      border-radius: 20px;
+      margin-bottom: 1rem;
+    }
+    .ultime-notizie-section h2 {
+      color: #05386b;
+    }
+    .un-card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 24px rgba(5,56,107,0.10);
+      padding: 2rem 2.25rem 1.75rem;
+    }
+    .un-date {
+      display: inline-block;
+      background-color: #05386b;
+      color: #fff;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.85rem;
+      border-radius: 20px;
+      margin-bottom: 0.85rem;
+    }
+    .un-card h3 {
+      color: #232323;
+      margin-bottom: 0.85rem;
+      font-weight: 700;
+    }
+    .un-body {
+      color: #444;
+      line-height: 1.75;
+      display: -webkit-box;
+      -webkit-line-clamp: 5;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .un-body p { margin-bottom: 0; }
+    .un-read-more {
+      display: inline-block;
+      margin-top: 1.25rem;
+      color: #05386b;
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: 2px solid #05386b;
+      padding-bottom: 1px;
+      transition: opacity 0.2s;
+    }
+    .un-read-more:hover { opacity: 0.7; text-decoration: none; }
+    .un-loading, .un-error { color: #888; text-align: center; padding: 2rem 0; }
+  </style>
+
 </head>
 <body>
   
@@ -178,6 +242,31 @@
     </div>
 </section>
 
+<!-- ════════════════════════════════════════════ ULTIME NOTIZIE -->
+<section class="ultime-notizie-section" id="ultime-notizie">
+  <div class="container">
+    <div class="row justify-content-center mb-4">
+      <div class="col-12 col-lg-8 text-center">
+        <span class="section-label">Notizie</span>
+        <h2 class="mbr-section-title mbr-fonts-style display-2"><strong>Ultime Notizie</strong></h2>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-8">
+        <div id="un-container">
+          <div class="un-loading">
+            <div class="spinner-border" role="status" style="width:2rem;height:2rem;border-color:#05386b;border-right-color:transparent;"></div>
+            <p class="mt-2 mbr-fonts-style display-7">Caricamento…</p>
+          </div>
+        </div>
+        <div class="text-center mt-4">
+          <a href="notizie.html" class="btn btn-primary display-7">Tutte le notizie &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section data-bs-version="5.1" class="contacts2 cid-sODOqUXKXM mbr-parallax-background" id="contacts2-2">
     <!---->
     
@@ -320,7 +409,83 @@
         </div>
     </div>
 </section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/r" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;"><a href="https://mobirise.site/t" style="color:#aaa;">Made</a> with Mobirise bootstrap web template</p></section><script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>  <script src="assets/parallax/jarallax.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/ytplayer/index.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/theme/js/script.js"></script>  
-  
-  
+
+  <script>
+    /* ── Ultime Notizie – fetch latest entry from Contentful ── */
+    (function() {
+      var SPACE_ID    = 'n5jm43meh4n6';
+      var ACCESS_TOKEN = '_Lk9huUfVjVvSJRCOOuU45AMbmYucVw0CUxwzzJdYUQ';
+      var MESI = ['gennaio','febbraio','marzo','aprile','maggio','giugno',
+                  'luglio','agosto','settembre','ottobre','novembre','dicembre'];
+
+      function formatDate(s) {
+        if (!s) return '';
+        var d = new Date(s);
+        return d.getUTCDate() + ' ' + MESI[d.getUTCMonth()] + ' ' + d.getUTCFullYear();
+      }
+
+      function escHtml(s) {
+        return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+      }
+
+      function richTextToPlain(node) {
+        if (!node) return '';
+        if (node.nodeType === 'text') return escHtml(node.value || '');
+        return (node.content || []).map(richTextToPlain).join('');
+      }
+
+      function richTextToHtml(node) {
+        if (!node) return '';
+        var children = function() { return (node.content || []).map(richTextToHtml).join(''); };
+        switch (node.nodeType) {
+          case 'document':       return children();
+          case 'paragraph':      return '<p>' + children() + '</p>';
+          case 'heading-1': case 'heading-2': case 'heading-3':
+                                 return '<strong>' + children() + '</strong> ';
+          case 'unordered-list': return '<ul>' + children() + '</ul>';
+          case 'ordered-list':   return '<ol>' + children() + '</ol>';
+          case 'list-item':      return '<li>' + children() + '</li>';
+          case 'blockquote':     return '<span>' + children() + '</span> ';
+          case 'hyperlink':      return '<a href="' + escHtml(node.data.uri) + '" target="_blank" rel="noopener">' + children() + '</a>';
+          case 'text': {
+            var t = escHtml(node.value || '').replace(/\n/g, '<br>');
+            (node.marks || []).forEach(function(m) {
+              if (m.type === 'bold')      t = '<strong>' + t + '</strong>';
+              if (m.type === 'italic')    t = '<em>' + t + '</em>';
+              if (m.type === 'underline') t = '<u>' + t + '</u>';
+            });
+            return t;
+          }
+          default: return children();
+        }
+      }
+
+      var url = 'https://cdn.contentful.com/spaces/' + SPACE_ID +
+                '/entries?content_type=notizia&order=-fields.data&limit=1' +
+                '&access_token=' + ACCESS_TOKEN;
+
+      fetch(url)
+        .then(function(r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+        .then(function(data) {
+          var container = document.getElementById('un-container');
+          var items = data.items || [];
+          if (!items.length) { container.innerHTML = ''; return; }
+          var f = items[0].fields;
+          var dateHtml  = f.data    ? '<span class="un-date">' + formatDate(f.data) + '</span>' : '';
+          var titleHtml = f.titolo  ? '<h3 class="mbr-fonts-style display-5"><strong>' + escHtml(f.titolo) + '</strong></h3>' : '';
+          var bodyHtml  = f.contenuto ? '<div class="un-body mbr-fonts-style display-7">' + richTextToHtml(f.contenuto) + '</div>' : '';
+          container.innerHTML =
+            '<div class="un-card">' +
+              dateHtml + titleHtml + bodyHtml +
+              '<a href="notizie.html" class="un-read-more mbr-fonts-style display-7">Leggi tutto &rarr;</a>' +
+            '</div>';
+        })
+        .catch(function() {
+          document.getElementById('un-container').innerHTML =
+            '<div class="un-error mbr-fonts-style display-7">Impossibile caricare le notizie.</div>';
+        });
+    })();
+  </script>
+
 </body>
 </html>
