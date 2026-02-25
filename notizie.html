@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Site made with Mobirise Website Builder v5.5.0, https://mobirise.com -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Mobirise v5.5.0, mobirise.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" href="assets/images/logo.png" type="image/x-icon">
+  <meta name="description" content="Le ultime notizie e aggiornamenti dai progetti di O.R.U.A.M in Mali.">
+  <title>Notizie - O.R.U.A.M</title>
+  <link rel="stylesheet" href="assets/web/assets/mobirise-icons2/mobirise2.css">
+  <link rel="stylesheet" href="assets/web/assets/mobirise-icons-bold/mobirise-icons-bold.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
+  <link rel="stylesheet" href="assets/parallax/jarallax.css">
+  <link rel="stylesheet" href="assets/dropdown/css/style.css">
+  <link rel="stylesheet" href="assets/socicon/css/styles.css">
+  <link rel="stylesheet" href="assets/theme/css/style.css">
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Inter:100,200,300,400,500,600,700,800,900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:100,200,300,400,500,600,700,800,900&display=swap"></noscript>
+  <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css"><link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
+
+  <style>
+    /* ── Page header ── */
+    .notizie-page-header {
+      background-color: #05386b;
+      padding: 4rem 0 3rem;
+    }
+
+    /* ── Timeline wrapper ── */
+    .oruam-timeline-section {
+      padding: 4rem 0 5rem;
+      background-color: #fff;
+    }
+
+    /* ── Vertical line ── */
+    .oruam-timeline {
+      position: relative;
+      padding: 1rem 0;
+    }
+    .oruam-timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: #05386b;
+      transform: translateX(-50%);
+    }
+
+    /* ── Individual entry ── */
+    .timeline-entry {
+      display: flex;
+      justify-content: flex-end;
+      padding-right: calc(50% + 2.5rem);
+      margin-bottom: 3rem;
+      position: relative;
+    }
+    .timeline-entry.right {
+      justify-content: flex-start;
+      padding-right: 0;
+      padding-left: calc(50% + 2.5rem);
+    }
+
+    /* ── Dot on the line ── */
+    .timeline-entry::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 1.5rem;
+      width: 16px;
+      height: 16px;
+      background: #05386b;
+      border: 3px solid #fff;
+      border-radius: 50%;
+      transform: translateX(-50%);
+      box-shadow: 0 0 0 3px #05386b;
+    }
+
+    /* ── Card ── */
+    .timeline-card {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.10);
+      padding: 1.75rem 2rem;
+      max-width: 100%;
+      width: 100%;
+      position: relative;
+    }
+
+    /* ── Arrow pointing to the line ── */
+    .timeline-entry:not(.right) .timeline-card::after {
+      content: '';
+      position: absolute;
+      right: -12px;
+      top: 1.6rem;
+      border: 6px solid transparent;
+      border-left-color: #fff;
+    }
+    .timeline-entry.right .timeline-card::after {
+      content: '';
+      position: absolute;
+      left: -12px;
+      top: 1.6rem;
+      border: 6px solid transparent;
+      border-right-color: #fff;
+    }
+
+    /* ── Date badge ── */
+    .timeline-date {
+      display: inline-block;
+      background-color: #05386b;
+      color: #fff;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.85rem;
+      border-radius: 20px;
+      margin-bottom: 0.75rem;
+    }
+
+    /* ── Title ── */
+    .timeline-card h4 {
+      color: #232323;
+      margin-bottom: 0.75rem;
+      font-weight: 700;
+    }
+
+    /* ── Body text ── */
+    .timeline-body p,
+    .timeline-body li {
+      color: #444;
+      line-height: 1.7;
+    }
+    .timeline-body ul,
+    .timeline-body ol {
+      padding-left: 1.4rem;
+      margin-bottom: 0.75rem;
+    }
+    .timeline-body a {
+      color: #05386b;
+    }
+
+    /* ── Images grid ── */
+    .timeline-images {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 0.5rem;
+      margin-top: 1.25rem;
+    }
+    .timeline-images img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .timeline-images img:hover { opacity: 0.85; }
+
+    /* ── Video embed ── */
+    .timeline-video {
+      margin-top: 1.25rem;
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 6px;
+    }
+    .timeline-video iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: 0;
+    }
+
+    /* ── Loading & error states ── */
+    .timeline-spinner {
+      text-align: center;
+      padding: 4rem 0;
+      color: #888;
+    }
+    .timeline-spinner .spinner-border {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-color: #05386b;
+      border-right-color: transparent;
+    }
+    .timeline-error {
+      text-align: center;
+      padding: 3rem;
+      color: #c00;
+      background: #fff8f8;
+      border-radius: 8px;
+      border: 1px solid #fcc;
+    }
+    .timeline-empty {
+      text-align: center;
+      padding: 3rem;
+      color: #888;
+    }
+
+    /* ── SETUP NOTICE (shown when credentials are placeholder) ── */
+    .setup-notice {
+      background: #fff3cd;
+      border: 1px solid #ffc107;
+      border-radius: 8px;
+      padding: 1.5rem 2rem;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    .setup-notice code {
+      background: #f0e0a0;
+      padding: 0.1rem 0.4rem;
+      border-radius: 3px;
+      font-size: 0.9em;
+    }
+
+    /* ── Mobile: single column ── */
+    @media (max-width: 767px) {
+      .oruam-timeline::before { left: 1.25rem; }
+      .timeline-entry,
+      .timeline-entry.right {
+        justify-content: flex-start;
+        padding-left: 3.5rem;
+        padding-right: 0;
+      }
+      .timeline-entry::after {
+        left: 1.25rem;
+      }
+      .timeline-entry:not(.right) .timeline-card::after,
+      .timeline-entry.right .timeline-card::after {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ════════════════════════════════════════════ NAVBAR -->
+  <section data-bs-version="5.1" class="menu menu3 cid-sFAA5oUu2Y" once="menu" id="menu3-notizie">
+    <nav class="navbar navbar-dropdown navbar-expand-lg">
+      <div class="container-fluid">
+        <div class="navbar-brand">
+          <span class="navbar-logo">
+            <a href="index.html">
+              <img src="assets/images/logo.png" alt="O.R.U.A.M" style="height: 3rem;">
+            </a>
+          </span>
+          <span class="navbar-caption-wrap"><a class="navbar-caption text-primary display-5" href="index.html">O.R.U.A.M</a></span>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbarSupportedContent" data-bs-target="#navbarSupportedContent" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <div class="hamburger"><span></span><span></span><span></span><span></span></div>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
+            <li class="nav-item dropdown">
+              <a class="nav-link link text-primary dropdown-toggle display-7" href="#" data-bs-auto-close="outside" aria-expanded="false" data-toggle="dropdown-submenu" data-bs-toggle="dropdown">I Progetti</a>
+              <div class="dropdown-menu" aria-labelledby="dropdown-undefined">
+                <a class="text-primary show dropdown-item display-7" href="scuola.html" aria-expanded="false">La scuola<br></a>
+                <a class="text-primary show dropdown-item display-7" href="sanità.html">La sanità<br></a>
+                <a class="text-primary show dropdown-item display-7" href="alimentatione.html">L' alimentazione<br></a>
+                <a class="text-primary show dropdown-item display-7" href="progetti.html">Tutti i progetti</a>
+              </div>
+            </li>
+            <li class="nav-item"><a class="nav-link link text-primary display-7" href="galleria.html">Galleria<br></a></li>
+            <li class="nav-item active"><a class="nav-link link text-primary display-7" href="notizie.html">Notizie<br></a></li>
+            <li class="nav-item"><a class="nav-link link text-primary display-7" href="sostenitori.html">I nostri sostenitori<br></a></li>
+            <li class="nav-item"><a class="nav-link link text-primary display-7" href="index.html#contacts3-c">Contatti</a></li>
+          </ul>
+          <div class="navbar-buttons mbr-section-btn"><a class="btn btn-primary display-4" href="index.html#contacts2-2">DONA ORA!</a></div>
+        </div>
+      </div>
+    </nav>
+  </section>
+
+  <!-- ════════════════════════════════════════════ PAGE HEADER -->
+  <section class="notizie-page-header" id="notizie-header">
+    <div class="align-center container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-8">
+          <h1 class="mbr-section-title mbr-fonts-style mbr-white mb-3 display-2"><strong>Le nostre Notizie</strong></h1>
+          <p class="mbr-section-subtitle mbr-fonts-style mbr-white display-5">Aggiornamenti e storie dal progetto</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════ TIMELINE SECTION -->
+  <section class="oruam-timeline-section" id="notizie-section">
+    <div class="container">
+
+      <!-- Setup notice — only visible when placeholder credentials are still in place -->
+      <div class="setup-notice" id="setup-notice" style="display:none;">
+        <strong>Configurazione richiesta:</strong> sostituisci <code>YOUR_SPACE_ID</code> e <code>YOUR_ACCESS_TOKEN</code>
+        nel file <code>notizie.html</code> con le credenziali del tuo spazio Contentful.
+        Consulta le istruzioni nel commento in cima al blocco &lt;script&gt; in fondo alla pagina.
+      </div>
+
+      <div id="timeline-container">
+        <!-- Loading state -->
+        <div class="timeline-spinner" id="loading-state">
+          <div class="spinner-border" role="status"></div>
+          <p class="mt-3 mbr-fonts-style display-7">Caricamento notizie…</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════ FOOTER -->
+  <section data-bs-version="5.1" class="footer3 cid-sFAOjz8nX7" once="footers" id="footer3-notizie">
+    <div class="container">
+      <div class="media-container-row align-center mbr-white">
+        <div class="row row-links">
+          <ul class="foot-menu">
+            <li class="foot-menu-item mbr-fonts-style display-7"><a href="index.html#top" class="text-white text-primary">Home</a></li>
+          </ul>
+        </div>
+        <div class="row social-row">
+          <div class="social-list align-right pb-2">
+            <div class="soc-item">
+              <a href="https://www.facebook.com/assORUAM-232869803446854" target="_blank">
+                <span class="mbr-iconfont mbr-iconfont-social socicon-facebook socicon"></span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="row row-copirayt">
+          <p class="mbr-text mb-0 mbr-fonts-style mbr-white align-center display-7">
+            © Copyright 2021 assO.R.U.A.M. Tutti i Diritti Riservarti.<br>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/parallax/jarallax.js"></script>
+  <script src="assets/smoothscroll/smooth-scroll.js"></script>
+  <script src="assets/ytplayer/index.js"></script>
+  <script src="assets/dropdown/js/navbar-dropdown.js"></script>
+  <script src="assets/theme/js/script.js"></script>
+
+  <script>
+    /*
+    ══════════════════════════════════════════════════════════════════
+      CONTENTFUL SETUP — fill in these two values once only
+    ══════════════════════════════════════════════════════════════════
+
+    1. Go to app.contentful.com → your Space → Settings → API keys
+    2. Click "Add API key" (or use an existing one)
+    3. Copy "Space ID"         → paste as SPACE_ID below
+    4. Copy "Content Delivery API - access token" → paste as ACCESS_TOKEN below
+
+    Content model required in Contentful (Content type ID: "notizia"):
+      Field ID      Type          Label
+      ─────────     ──────        ──────────────────
+      titolo        Short text    Titolo
+      data          Date          Data
+      contenuto     Rich text     Contenuto
+      immagini      Media (many)  Immagini (optional)
+      videoUrl      Short text    Video URL (optional)
+
+    ══════════════════════════════════════════════════════════════════
+    */
+    const SPACE_ID    = 'YOUR_SPACE_ID';
+    const ACCESS_TOKEN = 'YOUR_ACCESS_TOKEN';
+
+    // ── Italian month names ──────────────────────────────────────────
+    const MESI = ['gennaio','febbraio','marzo','aprile','maggio','giugno',
+                  'luglio','agosto','settembre','ottobre','novembre','dicembre'];
+
+    function formatDate(dateStr) {
+      if (!dateStr) return '';
+      const d = new Date(dateStr);
+      return `${d.getUTCDate()} ${MESI[d.getUTCMonth()]} ${d.getUTCFullYear()}`;
+    }
+
+    // ── Extract YouTube / Vimeo embed URL ────────────────────────────
+    function getEmbedUrl(url) {
+      if (!url) return null;
+      let m = url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/))([^&?\s]+)/);
+      if (m) return 'https://www.youtube.com/embed/' + m[1];
+      m = url.match(/vimeo\.com\/(\d+)/);
+      if (m) return 'https://player.vimeo.com/video/' + m[1];
+      return null;
+    }
+
+    // ── Simple Contentful rich-text → HTML renderer ──────────────────
+    function richTextToHtml(node) {
+      if (!node) return '';
+      const children = () => (node.content || []).map(richTextToHtml).join('');
+      switch (node.nodeType) {
+        case 'document':        return children();
+        case 'paragraph':       return '<p class="mbr-text mbr-fonts-style display-7">' + children() + '</p>';
+        case 'heading-1':       return '<h2 class="mbr-fonts-style display-5"><strong>' + children() + '</strong></h2>';
+        case 'heading-2':       return '<h3 class="mbr-fonts-style display-7"><strong>' + children() + '</strong></h3>';
+        case 'heading-3':       return '<h4 class="mbr-fonts-style display-7"><strong>' + children() + '</strong></h4>';
+        case 'unordered-list':  return '<ul>' + children() + '</ul>';
+        case 'ordered-list':    return '<ol>' + children() + '</ol>';
+        case 'list-item':       return '<li class="mbr-text mbr-fonts-style display-7">' + children() + '</li>';
+        case 'blockquote':      return '<blockquote class="mbr-text mbr-fonts-style display-7" style="border-left:4px solid #05386b;padding-left:1rem;color:#555;">' + children() + '</blockquote>';
+        case 'hr':              return '<hr>';
+        case 'hyperlink':
+          return '<a href="' + node.data.uri + '" class="text-primary" target="_blank" rel="noopener">' + children() + '</a>';
+        case 'text': {
+          let t = node.value.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\n/g,'<br>');
+          (node.marks || []).forEach(function(mark) {
+            if (mark.type === 'bold')      t = '<strong>' + t + '</strong>';
+            if (mark.type === 'italic')    t = '<em>' + t + '</em>';
+            if (mark.type === 'underline') t = '<u>' + t + '</u>';
+            if (mark.type === 'code')      t = '<code>' + t + '</code>';
+          });
+          return t;
+        }
+        default:
+          return children();
+      }
+    }
+
+    // ── Build asset map from includes ────────────────────────────────
+    function buildAssetMap(includes) {
+      const map = {};
+      if (includes && includes.Asset) {
+        includes.Asset.forEach(function(a) {
+          map[a.sys.id] = a.fields;
+        });
+      }
+      return map;
+    }
+
+    // ── Render one timeline card ─────────────────────────────────────
+    function buildCard(item, assetMap, index) {
+      const f = item.fields;
+      const isRight = (index % 2 === 1);
+      const entryClass = 'timeline-entry' + (isRight ? ' right' : '');
+
+      // Date
+      const dateBadge = f.data
+        ? '<span class="timeline-date">' + formatDate(f.data) + '</span>'
+        : '';
+
+      // Title
+      const title = f.titolo
+        ? '<h4 class="mbr-fonts-style display-5"><strong>' + escHtml(f.titolo) + '</strong></h4>'
+        : '';
+
+      // Rich text body
+      const body = f.contenuto
+        ? '<div class="timeline-body">' + richTextToHtml(f.contenuto) + '</div>'
+        : '';
+
+      // Images
+      let imagesHtml = '';
+      if (f.immagini && f.immagini.length) {
+        const imgs = f.immagini.map(function(ref) {
+          const asset = assetMap[ref.sys.id];
+          if (!asset || !asset.file) return '';
+          const url = 'https:' + asset.file.url;
+          const alt = escHtml(asset.title || f.titolo || '');
+          return '<img src="' + url + '?w=400&fm=jpg&q=75" alt="' + alt + '" loading="lazy">';
+        }).join('');
+        if (imgs) imagesHtml = '<div class="timeline-images">' + imgs + '</div>';
+      }
+
+      // Video
+      let videoHtml = '';
+      const embedUrl = getEmbedUrl(f.videoUrl);
+      if (embedUrl) {
+        videoHtml = '<div class="timeline-video"><iframe src="' + embedUrl + '" allowfullscreen loading="lazy"></iframe></div>';
+      }
+
+      return '<div class="' + entryClass + '">' +
+               '<div class="timeline-card">' +
+                 dateBadge + title + body + imagesHtml + videoHtml +
+               '</div>' +
+             '</div>';
+    }
+
+    function escHtml(str) {
+      return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }
+
+    // ── Render full timeline ─────────────────────────────────────────
+    function renderTimeline(data) {
+      const container = document.getElementById('timeline-container');
+      const assetMap  = buildAssetMap(data.includes);
+      const items     = data.items || [];
+
+      if (!items.length) {
+        container.innerHTML = '<div class="timeline-empty"><p class="mbr-text mbr-fonts-style display-7">Nessuna notizia disponibile al momento.<br>Torna presto!</p></div>';
+        return;
+      }
+
+      const cardsHtml = items.map(function(item, i) {
+        return buildCard(item, assetMap, i);
+      }).join('');
+
+      container.innerHTML = '<div class="oruam-timeline">' + cardsHtml + '</div>';
+    }
+
+    // ── Main: fetch from Contentful ──────────────────────────────────
+    (function init() {
+      if (SPACE_ID === 'YOUR_SPACE_ID' || ACCESS_TOKEN === 'YOUR_ACCESS_TOKEN') {
+        document.getElementById('setup-notice').style.display = 'block';
+        document.getElementById('loading-state').style.display = 'none';
+        return;
+      }
+
+      const apiUrl = 'https://cdn.contentful.com/spaces/' + SPACE_ID +
+                     '/entries?content_type=notizia&order=-fields.data' +
+                     '&access_token=' + ACCESS_TOKEN + '&include=2';
+
+      fetch(apiUrl)
+        .then(function(res) {
+          if (!res.ok) throw new Error('HTTP ' + res.status);
+          return res.json();
+        })
+        .then(function(data) {
+          renderTimeline(data);
+        })
+        .catch(function(err) {
+          document.getElementById('timeline-container').innerHTML =
+            '<div class="timeline-error">' +
+              '<p class="mbr-text mbr-fonts-style display-7"><strong>Impossibile caricare le notizie.</strong><br>' +
+              'Controlla la connessione o le credenziali Contentful.<br>' +
+              '<small style="color:#aaa;">' + err.message + '</small></p>' +
+            '</div>';
+        });
+    })();
+  </script>
+
+</body>
+</html>
